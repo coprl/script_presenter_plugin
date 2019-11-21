@@ -1,0 +1,7 @@
+<% if comp.inline %>
+<script>
+<%= comp.script_body %>
+</script>
+<% else %>
+ <script <%= "id=\"#{comp.id}\"" if comp.id %> src="<%= comp.src %>"></script>
+<% end %>
