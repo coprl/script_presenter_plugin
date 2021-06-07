@@ -1,6 +1,6 @@
 require_relative 'script/component'
 
-module Voom
+module Coprl
   module Presenters
     module Plugins
       module Script
@@ -13,11 +13,14 @@ module Voom
         end
 
         module WebClientComponents
-          def render_script(comp, render:, components:, index:)
-            view_dir = File.join(__dir__, 'script')
+          def view_dir_script(pom)
+            File.join(__dir__, '../../../..', 'views', 'components')
+          end
 
+
+          def render_script(comp, render:, components:, index:)
             render.call(:erb, :script,
-                        views: view_dir,
+                        views: view_dir_script(comp),
                         locals: { comp: comp, components: components, index: index })
           end
         end
