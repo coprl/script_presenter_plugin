@@ -12,8 +12,14 @@ module Coprl
             super(type: :script, **attrs, &block)
 
             @src = src
-            @inline = inline
+            @inline = html_safe(inline)
             @id = attrs[:id]
+          end
+
+          private
+
+          def html_safe(string)
+            string.respond_to?(:html_safe) ? string.html_safe : string
           end
         end
 

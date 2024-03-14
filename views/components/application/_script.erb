@@ -1,6 +1,6 @@
 <% if comp.inline %>
   <script>
-          <%= comp.inline %>
+    <%= comp.inline %>
   </script>
 <% else %>
   <script <%= "id=\"#{comp.id}\"" if comp.id %> src="<%= comp.src %>"></script>
